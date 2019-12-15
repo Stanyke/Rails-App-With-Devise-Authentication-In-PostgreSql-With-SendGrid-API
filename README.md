@@ -25,18 +25,36 @@ NB: There's no much difference between MySQl and PostgreSql
 
 8. Go to config/routes.rb from the root directory and place in *root to: 'pages#index'* and this is to notify the rails app that the index.html.erb is now our official homepage.
 
-9. Now lets make our website more responsive with bootstrap, go to *Gemfile* located in the root directory and added gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2' and save it
+9. Now lets make our website more responsive with bootstrap, go to *Gemfile* located in the root directory and added gem 'bootstrap-sass'
+gem 'devise' and save it
 
 10. now go to the command prompt and run 'bundle install' command, without the qoute to get new added gemfiles.
 
 11. Go to app/assets/stylesheets/stylesheets/application.css file from root directory and remove *= require_tree .
- *= require_self, also add @import "bootstrap-sprockets";
-@import "bootstrap"; and finally change the name from application.css to application.scss to enable the app to run a SASS or bootstrap file.
+ *= require_self, also add @import "bootstrap-sprockets"; @import "bootstrap"; @import 'bootstrap/theme'; and finally change the name from application.css to application.scss to enable the app to run a SASS or bootstrap file.
 
 12. Now go back to Gemfile and add gem 'jquery-rails' to insall jquery for rails and run bundle install.
 
 13. Go to app/assets/javascript/application.js and add //= require jquery
 //= require bootstrap-sprockets to enable the jquery installed to work
 
-14. 
+14. Now got to app/views/layouts/application.html.erb and replace <%= yield %> with *<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+</div>
+
+<%= yield :top_content %>
+
+<div class="container">
+    <h1><%= yield :header %></h1>
+  <%= yield %>
+</div>* this is a bootstrap alert that would run when making use of Devise gemfile
+
+15. Go to app/views/layouts/application_helper.rb and insert *def header(text)
+  content_for(:header) { text.to_s }
+end* within the module ApplicationHelper and its ending
+
+16. 
