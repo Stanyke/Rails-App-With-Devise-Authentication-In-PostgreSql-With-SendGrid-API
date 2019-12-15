@@ -25,4 +25,9 @@ NB: There's no much difference between MySQl and PostgreSql
 
 8. Go to config/routes.rb from the root directory and place in *root to: 'pages#index'* and this is to notify the rails app that the index.html.erb is now our official homepage.
 
-9. 
+9. Now lets make our website more responsive with bootstrap, go to *Gemfile* located in the root directory and added gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2' and save it
+
+10. now go to the command prompt and run 'bundle install' command, without the qoute to get new added gemfiles.
+
+11. 
