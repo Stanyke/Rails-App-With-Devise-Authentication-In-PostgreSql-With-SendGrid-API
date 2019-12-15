@@ -30,4 +30,13 @@ gem 'sass-rails', '>= 3.2' and save it
 
 10. now go to the command prompt and run 'bundle install' command, without the qoute to get new added gemfiles.
 
-11. 
+11. Go to app/assets/stylesheets/stylesheets/application.css file from root directory and remove *= require_tree .
+ *= require_self, also add @import "bootstrap-sprockets";
+@import "bootstrap"; and finally change the name from application.css to application.scss to enable the app to run a SASS or bootstrap file.
+
+12. Now go back to Gemfile and add gem 'jquery-rails' to insall jquery for rails and run bundle install.
+
+13. Go to app/assets/javascript/application.js and add //= require jquery
+//= require bootstrap-sprockets to enable the jquery installed to work
+
+14. 
