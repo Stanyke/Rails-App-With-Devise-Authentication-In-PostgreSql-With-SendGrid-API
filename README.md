@@ -1,12 +1,12 @@
 # README
 
-This is a ruby on rails web application built with Devise gem file that is used for Authorization and Authentication which would be verified using SendGrid API to The user's Email and PostgreSql database.
+This is a ruby on rails web application built with Devise gem file that is used for Authorization and Authentication which would be verified using SendGrid API to The user's Email and MySQL database.
 
 
 
 *Steps Taken To Make This App*
 
-1. rails new railswithdevise --database=postgresql   (To create a ruby on rails app named "railswithdevise", with a postgresql database) *Before this command, you should already be in your 'C:\Sites' directory*
+1. rails new railswithdevise  (To create a ruby on rails app named "railswithdevise", we would be using MySQL) *Before this command, you should already be in your 'C:\Sites' directory*
 
 NB: There's no much difference between MySQl and PostgreSql
 
@@ -83,4 +83,15 @@ end* within the module ApplicationHelper and its ending
 
 	So we would be enabling them to make use of it.
 
-21. 
+21. You also have to edit the migration file, so open it up and uncomment the following lines:
+	
+	db/migrations/xxx_devise_create_users.rb
+
+	These fields are required for the Confirmable and Lockable modules to operate correctly. It is also a nice idea to allow users to provide their name, so add one more line:
+
+	t.string :fname
+	t.string :lname
+
+22. Now, run the migration: **rake db:migrate**, this would fix up the database table with the details from 	db/migrations/xxx_devise_create_users.rb .
+
+23. 

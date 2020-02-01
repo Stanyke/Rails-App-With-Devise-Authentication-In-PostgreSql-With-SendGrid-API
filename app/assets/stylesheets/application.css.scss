@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+.homie { height:250px; border: 1px solid #1FA6B6;
+border-top-style: dotted;
+border-bottom-style: none;
+  }
+ #my_actions{position: absolute;
+    bottom: 0;}
+a.home_links {
+  color: white !important;
+}
+
+a.home_links:hover {
+  color: black !important;
+  text-decoration:underline;
+}
+
+a.home_links:hover {
+  text-decoration: none;
+  color: #5c8a36;
+  background:transparent;
+}
+a.home_links:focus {
+  text-decoration: none;
+  color: #5c8a36;   
+}
+
+
+.note
+{
+    text-align: center;
+    height: 80px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+	background: #0062cc;
+}
+
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+	border-radius:1.5rem;
+}
+.custom-select{
+    border-radius:1.5rem;
+	width: 100%;
+	padding:5px;
+}
+
+
+.danger-home, .btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 100%;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btnView
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 100%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+
+
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+
+
+#attachment{width:100%;}

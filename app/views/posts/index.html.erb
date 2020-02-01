@@ -1,0 +1,128 @@
+<% content_for(:html_title) { 'HomePage | Hicon' } %>
+<title><%= @title %></title>
+
+<% if @posts.blank? %>
+<center><h1>There is no post currently available.</h1></center>
+
+<% else %>
+
+<div class="col-md-12">
+<center><h1>Posts</h1><%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Older",next_label: "Newer", inner_window: 1, outer_window: 0 %></center>
+</div>
+
+<% @posts.each do |post| %>
+
+<div class="col-md-4 homie">
+	<% path = post.attachment.to_s %>
+			<% if File.extname(path) == ".mp4" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".mkv" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".avi" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".3gp" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".flv" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".mov" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".webm" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".ogg" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".wma" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".wmv" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".mpeg-ts" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".hdv" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".wav" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".vob" %>
+				<%= video_tag(["#{post.attachment}"], :size => "320x240", :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".mp3" %>
+				<%= audio_tag(["#{post.attachment}"], :controls => true) %>
+			<% end %>
+			<% if File.extname(path) == ".jpg" %>
+				<%= image_tag("#{post.attachment}", :size => "200x150") %>
+			<% end %>
+			<% if File.extname(path) == ".jpeg" %>
+				<%= image_tag("#{post.attachment}", :size => "200x150") %>
+			<% end %>
+			<% if File.extname(path) == ".png" %>
+				<%= image_tag("#{post.attachment}", :size => "200x150") %>
+			<% end %>
+			<% if File.extname(path) == ".gif" %>
+				<%= image_tag("#{post.attachment}", :size => "200x150") %>
+			<% end %>
+			<% if File.extname(path) == ".doc" %>
+				<%= link_to "Download File", post.attachment_url %>
+			<% end %>
+			<% if File.extname(path) == ".pdf" %>
+				<%= link_to "Download File", post.attachment_url %>
+			<% end %>
+			<% if File.extname(path) == ".docx" %>
+				<%= link_to "Download File", post.attachment_url %>
+			<% end %>
+			<% if File.extname(path) == ".htm" %>
+				<%= link_to "Download File", post.attachment_url %>
+			<% end %>
+			<% if File.extname(path) == ".html" %>
+				<%= link_to "Download File", post.attachment_url %>
+			<% end%>
+			<% if File.extname(path) == ".apk" %>
+				<%= link_to "Download Application", post.attachment_url %>
+			<% end%>
+			</br>
+			<div class="limitxt1">
+				<%= "Posted By: #{post.username}" %>
+			</div>
+			<div class="limitxt2">
+				<%= "#{post.note_title}" %>
+			</div>
+			<div class="limitxt3">
+				<%= "#{post.note_text}" %>
+			</div>
+			
+			<div id="my_actions" align="center">
+			<% if user_signed_in? %>
+				<% if post.user_id.to_i == current_user.id %>
+					<div class="btn-group">
+						<%= link_to 'Preview', post, :class => "btn btn-primary", :style=>"color: #fff;" %>
+						<%= link_to 'Edit', edit_post_path(post), :class => "btn btn-warning", :style=>"color: #fff;" %>
+						<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger", :style=>"color: #fff;" %>
+					</div>
+				<% else %>
+					<div class="btn-group">
+						<%= link_to 'Preview', post, :class => "btn btn-primary", :style=>"color: #fff;" %>
+					</div>
+				<% end %>
+			<% else %>
+				<div class="btn-group">
+					<%= link_to 'Preview', post, :class => "btn btn-primary", :style=>"color: #fff;" %>
+				</div>
+			<% end %>
+			</div>
+			
+	<br/>
+	<br/>
+</div>
+<% end %>
+<% end %>
+

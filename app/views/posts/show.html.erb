@@ -1,0 +1,94 @@
+<% content_for(:html_title) { 'Post Preview | Hicon' } %>
+<title><%= @title %></title>
+
+<h1><%= @post.username %></h1>
+<h4>"<%= @post.note_title %>"</h4>
+<h4>"<%= @post.note_text %>"</h4>
+
+<% path = @post.attachment.to_s %>
+
+<% if File.extname(path) == ".mp4" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".mkv" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".avi" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".3gp" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".flv" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".mov" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".webm" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".ogg" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".wma" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".wmv" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".mpeg-ts" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".hdv" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".wav" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".vob" %>
+	<%= video_tag(["#{@post.attachment}"], :size => "320x240", :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".mp3" %>
+	<%= audio_tag(["#{@post.attachment}"], :controls => true) %>
+<% end %>
+<% if File.extname(path) == ".jpg" %>
+	<%= image_tag("#{@post.attachment}", {:style => "width:200px;"}) %>
+<% end %>
+<% if File.extname(path) == ".jpeg" %>
+	<%= image_tag("#{@post.attachment}", {:style => "width:200px;"}) %>
+<% end %>
+<% if File.extname(path) == ".png" %>
+	<%= image_tag("#{@post.attachment}", {:style => "width:200px;"}) %>
+<% end %>
+<% if File.extname(path) == ".gif" %>
+	<%= image_tag("#{@post.attachment}", {:style => "width:200px;"}) %>
+<% end %>
+<% if File.extname(path) == ".doc" %>
+	<%= link_to "Download File", @post.attachment_url %>
+<% end %>
+<% if File.extname(path) == ".pdf" %>
+	<%= link_to "Download File", @post.attachment_url %>
+<% end %>
+<% if File.extname(path) == ".docx" %>
+	<%= link_to "Download File", @post.attachment_url %>
+<% end %>
+<% if File.extname(path) == ".htm" %>
+	<%= link_to "Download File", @post.attachment_url %>
+<% end %>
+<% if File.extname(path) == ".html" %>
+	<%= link_to "Download File", @post.attachment_url %>
+<% end%>
+<% if File.extname(path) == ".apk" %>
+	<%= link_to "Download Application", @post.attachment_url %>
+<% end%>
+
+<br/>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %>
+
+<% else %>
+<%= link_to 'Back', posts_path %>
+
+<% end %>

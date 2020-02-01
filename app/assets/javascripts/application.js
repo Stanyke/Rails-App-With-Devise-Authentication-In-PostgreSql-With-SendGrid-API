@@ -14,5 +14,56 @@
 //= require turbolinks
 //= require_tree .
 
-//= require jquery
+//= require jquery3
 //= require bootstrap-sprockets
+
+function viewPassword()
+	{
+		var passwordInput = document.getElementById('pwd1');
+		var passStatus = document.getElementById('pass_status');
+ 
+		if (passwordInput.type == 'password')
+		{
+			passwordInput.type='text';
+			passStatus.className='glyphicon glyphicon-eye-close';
+		}
+			
+		else
+		{
+			passwordInput.type='password';
+			passStatus.className='glyphicon glyphicon-eye-open';
+		}
+	}
+		
+function RCB()
+	{
+		$("#title").val("");
+		$("#article").val("");
+		$("#attachment").val("");
+	}
+		
+function relocate_home()
+{
+    location.href = "/posts";
+}
+
+
+$(function(){
+  $(".limitxt3").each(function(i){
+    len=$(this).text().length;
+    if(len>50)
+    {
+      $(this).text($(this).text().substr(0,150)+'...');
+    }
+  });       
+});
+
+$(function(){
+  $(".limitxt2").each(function(i){
+    len=$(this).text().length;
+    if(len>50)
+    {
+      $(this).text($(this).text().substr(0,70)+'...');
+    }
+  });       
+});

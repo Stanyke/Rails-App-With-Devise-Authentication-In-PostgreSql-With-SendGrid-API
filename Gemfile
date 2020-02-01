@@ -8,8 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+# Use mysql as the database for Active Record
+gem 'mysql2', "~>0.3.11"
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -53,3 +53,8 @@ gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'coffee-script-source', '1.8.0'
+gem 'carrierwave', '~> 0.9' 
+
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'

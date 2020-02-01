@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Railswithdevise</title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "Rails With Devise" %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<%= favicon_link_tag asset_path('favicon.png') %>
+	
   </head>
 
   <body>
-    <div class="container">
-	  <% flash.each do |key, value| %>
-		<div class="alert alert-<%= key %>">
-		  <%= value %>
-		</div>
-	  <% end %>
-	</div>
-
-	<%= yield :top_content %>
-
+		
+			<nav class="navbar navbar-inverse">
 	<div class="container">
-		<h1><%= yield :header %></h1>
-	  <%= yield %>
-	</div>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<%= link_to 'Rails With Devise', root_path, :class => 'navbar-brand' %>
+		</div>
+
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<% if user_signed_in? %>
+				<%= link_to 'New Post', new_post_path, :class => 'navbar-brand' %>
+				<% end %>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+					<li><%= link_to("#{current_user.username}'s Profile", edit_user_registration_path) %></li>
+					<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+				<% else %>
+					<li><%= link_to('Login', new_user_session_path)  %></li>
+					<li><%= link_to('Register', new_user_registration_path) %></li>
+				<% end %>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div><!--/.container-fluid -->
+</nav>
+
+		
+<div class="container">
+			<%if notice %>
+				<div class="alert alert-info alert-dismissible fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong><%= notice %></strong>
+				</div>
+			<% end %>
+			
+			<%if alert %>
+				<div class="alert alert-danger alert-dismissible fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong><%= alert %></strong>
+				</div>
+			<% end %>
+		
+			<%= yield %>
+		</div>
   </body>
 </html>
