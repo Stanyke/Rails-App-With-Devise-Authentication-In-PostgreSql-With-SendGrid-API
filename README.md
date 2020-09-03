@@ -1,6 +1,6 @@
 # README
 
-This is a ruby on rails web application built with Devise gem file that is used for Authorization and Authentication which would be verified using SendGrid API to The user's Email and MySQL database.
+This is a social news feed, ruby on rails web application built with Devise gem file that is used for Authorization and Authentication which would be verified using SendGrid API to The user's Email and MySQL database.
 
 
 
