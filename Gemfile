@@ -54,7 +54,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'devise'
 gem 'coffee-script-source', '1.8.0'
-gem 'carrierwave', '~> 0.9' 
+gem 'carrierwave', '~> 1.3' 
 
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
